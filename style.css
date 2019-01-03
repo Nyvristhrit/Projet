@@ -922,16 +922,11 @@ padding-left: 2em;
   overflow: hidden;
 }
 
-#conteneur_map {
-  margin: 0;
-  padding: 0;
-}
-
 #map {
   background-color: rgba(92, 173, 211, 0.4);
   position: absolute;
   width: 100%;
-  height: 64.2vh;
+  height: 62.5vh;
   pointer-events: none;
 }
 
@@ -948,7 +943,7 @@ form {
   width: 20em;
   height: 80%;
   left: 65vw;
-  bottom: 65vh;
+  bottom: 60vh;
   background-color: rgba(255, 255, 255, .7);
   padding: 10px 10px;
 }
