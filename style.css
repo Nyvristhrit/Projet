@@ -307,6 +307,21 @@ figure .slider {
     .btn_plusinfo {
         font-size: 1em;
     }
+
+    .info_slider h1 {
+    margin-bottom: 0.5em;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 2em;
+}
+
+.info_slider {
+    position: absolute;
+    line-height: 2.1em;
+    width: 50%;
+    top: 20%;
+}
+
 }
 
 @media all and (max-width: 767px) {
@@ -349,6 +364,10 @@ figure .slider {
     .info_slider h1 {
     font-size: 1.7em;
     line-height: 1em;
+}
+
+figure:last-child {
+  display: none;
 }
 
 }
@@ -978,7 +997,7 @@ textarea {
 
     form {
       left: 30%;
-      bottom: 58vh;
+      bottom: 66vh;
       height: 85%;
     }
 
