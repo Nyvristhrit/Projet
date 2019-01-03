@@ -1,0 +1,1015 @@
+/* Fonts choisies font-family: 'Roboto', sans-serif; */
+
+* {
+  border: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body
+{
+  font-weight: 400;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+}
+
+/*------------ NAV BAR TOP ----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+/* navigation styles start here */
+
+header {
+  background-color: white;
+  text-align: center;
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+}
+
+/* changed this from the tutorial video to
+   allow it to gain focus, making it tabbable */
+.nav-toggle {
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+}
+
+.nav-toggle:focus ~ .nav-toggle-label {
+  outline: 3px solid rgba(lightblue, .75);
+}
+
+.nav-toggle-label {
+  position: absolute;
+  top: 0.5em;
+  left: -0.2em;
+  margin-left: 1em;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  display: block;
+  background: lightgrey;
+  height: 2px;
+  width: 2em;
+  border-radius: 2px;
+  position: relative;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  content: '';
+  position: absolute;
+}
+
+.nav-toggle-label span::before {
+  bottom: 7px;
+}
+
+.nav-toggle-label span::after {
+  top: 7px;
+}
+
+header nav {
+  position: absolute;
+  text-align: left;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  width: 100%;
+  transform: scale(1, 0);
+  transform-origin: top;
+  transition: transform 400ms ease-in-out;
+}
+
+header nav ul {
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+header nav li {
+  margin-bottom: 1em;
+  margin-left: 1em;
+}
+
+header nav a {
+  color: #7b7b7b;
+  text-decoration: none;
+  font-size: 1rem;
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
+}
+
+header nav a:hover {
+  color: #585858;
+}
+
+.nav-toggle:checked ~ nav {
+  transform: scale(1,1);
+}
+
+.nav-toggle:checked ~ nav a {
+  opacity: 1;
+  transition: opacity 250ms ease-in-out 250ms;
+}
+
+.logo {
+    margin-top: 1.2em;
+    margin-bottom: 1.2em;
+    margin-left: 2.3em;
+  }
+
+@media screen and (min-width: 800px) {
+  .nav-toggle-label {
+    display: none;
+  }
+
+  header {
+    display: grid;
+    grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+  }
+  
+  .logo {
+    grid-column: 2 / 3;
+    width: 246px;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+  }
+  
+  header nav {
+    // all: unset; /* this causes issues with Edge, since it's unsupported */
+    
+    /* the following lines are not from my video, but add Edge support */
+    position: relative;
+    transition: none;
+    transform: scale(1,1);
+    background: none;
+    top: initial;
+    left: initial;
+    
+    grid-column: 3 / 4;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  header nav ul {
+    display: flex;
+  }
+  
+  header nav li {
+    margin-left: 3em;
+    margin-bottom: 0;
+  }
+  
+  header nav a {
+    opacity: 1;
+    position: relative;
+  }
+  
+  header nav a::before {
+    content: '';
+    display: block;
+    height: 4px;
+    background: #5dadd2;
+    position: absolute;
+    top: -2.6em;
+    left: -0.7em;
+    right: -0.7em;
+    transform: scale(0, 1);
+    transition: transform ease-in-out 250ms;
+  }
+  
+  header nav a:hover::before {
+    transform: scale(1,1);
+  }
+}
+
+/*------------ ACCUEIL ----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#accueil {
+    background-color: #ffffff;
+}
+
+.sl_controls {
+    display: none;
+}
+
+#slide1:target~#carousel .contenant {
+    left: 0;
+}
+
+#slide2:target~#carousel .contenant {
+    left: -100%;
+}
+
+#carousel {
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+figure .slider {
+    width: 100%;
+}
+
+#accueil .contenant {
+    position: relative;
+    width: 200%;
+    animation: 20s slideshow infinite;
+    padding-top: 8vh;
+}
+
+@-webkit-keyframes slideshow {
+    0%,
+    50% {
+        left: 0%;
+    }
+    55%,
+    100% {
+        left: -100%;
+    }
+}
+
+@keyframes slideshow {
+    0%,
+    50% {
+        left: 0%;
+    }
+    55%,
+    100% {
+        left: -100%;
+    }
+}
+
+#accueil figure {
+    position: relative;
+    width: 50%;
+    float: left;
+}
+
+.info_slider {
+    position: absolute;
+    line-height: 2.3em;
+    width: 38%;
+    left: 9%;
+    top: 30%;
+    color: #fff;
+}
+
+.info_slider h1 {
+    margin-bottom: 0.5em;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 2.5em;
+}
+
+.info_slider p {
+    line-height: 1em;
+}
+
+.info_slider strong {
+    color: #4eb1d5;
+}
+
+.btn_plusinfo {
+    margin-top: 1em;
+}
+
+.btn_plusinfo {
+    padding: .4em .8em;
+    background-color: #4eb1d5;
+    border-radius: 3px;
+    color: #fff;
+    border: 0;
+    font-size: 1.15em;
+    border-bottom: 3px #3a84a3 solid;
+}
+
+.btn_plusinfo:hover,
+.btn_plusinfo:focus,
+.btn_envoi:hover,
+.btn_envoi:focus {
+    box-shadow: 4px 4px 1em rgba(0, 0, 0, .3);
+}
+
+
+/*------------ RESPONSIVE SLIDER ----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+@media all and (max-width: 1024px) {
+    .btn_plusinfo {
+        font-size: 1em;
+    }
+}
+
+@media all and (max-width: 767px) {
+    
+    #border_timeline,
+    .contenant .controls {
+        display: none;
+    }
+    
+    #accueil .contenant {
+        animation: none!important;
+        width: 100%;
+    }
+    
+    #accueil figure {
+        width: 80%;
+        float: none;
+        margin: 1em auto;
+    }
+    
+    .info_slider {
+        top: 20%;
+        left: 0;
+        width: 96%;
+        padding: 1em;
+        height: 65%;
+    }
+    
+    .info_slider p {
+        display: block;
+        width: 65%;
+    }
+    
+    .btn_plusinfo {
+        position: absolute;
+        right: 1em;
+        bottom: .5em;
+    }
+
+    .info_slider h1 {
+    font-size: 1.7em;
+    line-height: 1em;
+}
+
+}
+
+@media all and (max-width: 480px) {
+    #accueil figure {
+        width: 90%;
+    }
+    .info_slider {
+        position: relative;
+        top: 0;
+        width: 100%;
+        padding: 0;
+        height: 100%;
+        margin-bottom: 1em;
+        color: #767676;
+    }
+    .info_slider h1 {
+        color: #767676;
+        font-size: 1.6em;
+        line-height: 1.1em;
+        padding-top: 1.2em;
+    }
+    .btn_plusinfo {
+        font-size: .9em;
+        right: 0;
+        bottom: 0;
+    }
+}
+
+
+/*------------ CMD RIGHT/LEFT ----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.controls {
+    position: absolute;
+    top: 43%;
+    width: 100%;
+    height: 6em;
+    display: flex;
+    align-items: center;
+}
+
+.controls a {
+    opacity: 0.5;
+}
+
+.controls a:hover {
+    opacity: 0.8;
+}
+
+#slide1:target~#carousel .contenant,
+#slide2:target~#carousel .contenant,
+#slide1:target~#carousel #border_timeline #timeline,
+#slide2:target~#carousel #border_timeline #timeline {
+    animation: none !important;
+}
+
+#accueil .contenant {
+    transition: all 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+    transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000);
+}
+
+.controls a {
+    transition: opacity 0.2s ease-out;
+}
+
+.chevron {
+    content: '';
+    border-style: solid;
+    border-width: 0.05em 0.05em 0 0;
+    height: 15px;
+    width: 15px;
+    transform: rotate(135deg);
+    color: #fff;
+}
+
+.demi_cercle {
+    position: absolute;
+    height: 2.5em;
+    width: 5.5em;
+    border-radius: 50%/ 100% 100% 0 0;
+    background-color: rgba(0, 0, 0, .5);
+    transform: rotate(90deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.demi_cercle.right {
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    right: -25px;
+}
+
+.demi_cercle.left {
+    left: -25px;
+}
+
+@media all and (max-width: 1024px) {
+    .demi_cercle.left {
+        left: -20px;
+    }
+    .demi_cercle.right {
+        right: -20px;
+    }
+}
+
+@media all and (max-width: 768px) {
+    .controls {
+        top: 40%;
+    }
+}
+
+/*------------ BORDER BOTTOM + TIMELINE ----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#border_timeline {
+    display: flex;
+    bottom: 0;
+    width: 100%;
+    background-color: #ffffff;
+}
+
+#timeline {
+    position: absolute;
+    background: #4eb1d5;
+    height: 4px;
+    width: 0px;
+    animation: timeliner 20s infinite;
+}
+
+.border {
+  height: 5em;
+  width: 100%;
+  background:linear-gradient(#ffffff, #eaeaea);
+  border-radius: 0 0 10px 10px;
+}
+}
+
+@-webkit-keyframes timeliner {
+    0%,
+    55%,
+    100% {
+        width: 0;
+    }
+    50%,
+    95% {
+        width: 100%;
+    }
+}
+
+@keyframes timeliner {
+    0%,
+    50%,
+    100% {
+        width: 0;
+    }
+    45%,
+    95% {
+        width: 100%;
+    }
+}
+
+@media all and (max-width: 768px) {
+    #border_timeline {
+        display: none;
+    }
+}
+
+
+/*------------ SERVICES ----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#services {
+  width: 100%;
+  height: auto;
+  background-color: #ffffff;
+}
+
+#services {
+  color: #63666b;
+}
+
+.intro {
+  text-align: center;
+  margin-bottom: 50px;
+  padding-top: 2em;
+  margin-right: 25%;
+  margin-left: 25%;
+}
+
+.intro h1{
+  font-weight: 700;
+  font-size: 3em;
+  color: #282828;
+}
+
+.intro p {
+  margin: 5px 0 5px 0;
+}
+
+article p {
+  font-size: 0.9em;
+}
+
+.line_dot {
+    display: flex;
+    align-items: center;
+    width: 12em;
+    margin: 1.4em auto;
+}
+
+
+.dot {
+    display: block;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    padding: .50em;
+    background-color: #4eb1d5;
+    position: relative;
+    right: 50%;
+}
+
+.line {
+    display: block;
+    border-bottom: 1.5px solid rgba(84, 84, 84, .1);
+    width: 100%;
+}
+
+#parttwo {
+  display: flex;
+  justify-content: space-around;
+}
+
+#left {
+  width: 35%;
+  padding-left: 7em;
+}
+
+#right {
+  display: inline-block;
+  width: 49%;
+  padding-top: 20px;
+  padding-left: 5em;
+}
+
+#right article {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    margin-bottom: 2em;
+}
+
+#right h3 {
+  font-weight: 700;
+  color: #262626;
+}
+
+#liste p {
+  padding-right: 7em;
+}
+
+.texte {
+  display: flex;
+  flex-direction: column;
+  margin-left: 2em;
+  line-height: 1.5em;
+}
+
+.icone {
+  font-size: 2em;
+  color: #5eaed3;
+  text-align: center;
+}
+
+.cercle {
+    border-radius: 50%;
+    width: 2.5em;
+    height: 2.5em;
+    border: 1px solid rgba(84, 84, 84, .2);
+}
+
+.cercle:before {
+    content: "";
+    padding-top: 0.7em;
+    padding-left: 0.7em;
+    display: flex;
+}
+
+.blue_dot {
+    display: block;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    padding: .25em;
+    background-color: #4eb1d5;
+    position: absolute;
+    margin-left: 2.1em;
+    margin-top: -.7em;
+}
+
+@media all and (max-width: 1024px) {
+
+  #parttwo {
+  display: flex;
+  flex-direction: column;
+}
+
+#left {
+  width: 100%;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+#left img {
+  max-width: 100%;
+}
+
+#right {
+  width: 85%;
+  padding-top: 20px;
+  padding-left: 10em;
+}
+
+#liste p {
+  padding: 0;
+}
+
+#intro {
+  margin-right: 10%; 
+  margin-left: 10%; 
+}
+
+#intro p {
+  margin: 1.2em 0em;
+}
+
+}
+
+@media all and (max-width: 480px) {
+#right { 
+padding-left: 2em;
+  }
+}
+
+/*------------ PORTFOLIO ----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.intro p {
+  color: #63666b;
+}
+
+#portfolio {
+    background-color: #f5f5f5;
+    padding-top: 1.2em;
+    margin: 0;
+    padding: 0;
+}
+
+.contenu_crea {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.ancre {
+    display: none;
+}
+
+.img_portfolio {
+    width: 100%;
+}
+
+
+/*------------ PORTFOLIO INFO ----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+.portfolio_infos {
+    position: relative;
+    width: 20%;
+    margin: 20px;
+    line-height: 0;
+    overflow: hidden;
+}
+
+.infos {
+    position: absolute;
+    line-height: 1.4em;
+    bottom: 0;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    top: 200%;
+}
+
+.text {
+    padding: .8em;
+}
+
+.fa-eye {
+    border-radius: 50%;
+    border: 2px solid #fff;
+    color: white;
+    position: absolute;
+    top: -20px;
+    right: 15px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background: linear-gradient(#438cb0, #4fa3b1);
+    font-size: 0.6em;
+}
+
+.portfolio_infos:hover .infos,
+.portfolio_infos:focus .infos {
+    transition-duration: 0.7s;
+    transition-timing-function: ease-out;
+    top: 65%;
+}
+
+
+/*------------ PORTFOLIO SELECTEUR ----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+#selecteur {
+    display: table;
+    margin: 0 auto 45px auto;
+    background: #e2e2e2;
+    border-radius: .3em;
+    font-size: 1.1em;
+    font-family: 'Roboto';
+    font-weight: 700;
+
+}
+
+#selecteur a{
+  text-decoration-line: none;
+}
+
+#selecteur ul {
+  display: flex;
+}
+
+#selecteur ul li {
+    display: flex;
+    justify-content: center;
+}
+
+#selecteur ul li:first-child a:hover,
+#selecteur ul li:first-child a:focus {
+    border-radius: 4px 0 0 4px;
+}
+
+#selecteur ul li:last-child a:hover,
+#selecteur ul li:last-child a:focus {
+    border-radius: 0 4px 4px 0;
+}
+
+#selecteur li a {
+    padding: .8em 1em;
+    border-bottom: 3px solid transparent;
+    color: #7b7b7b;
+}
+
+#selecteur li .triangle {
+    position: absolute;
+    margin-top: 51px;
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    border-top: 13px solid transparent;
+}
+
+#selecteur li:hover .triangle,
+#selecteur li:focus .triangle {
+    border-top: 13px solid #3a84a3;
+}
+
+#selecteur li a:hover,
+#selecteur li a:focus {
+    text-shadow: 0 1px 0 rgba(0, 0, 0, .2);
+    background: #4eb1d5;
+    color: #fff;
+    border-bottom: 3px #3a84a3 solid;
+}
+
+#creatif:target~.contenu_crea #crea_03,
+#creatif:target~.contenu_crea #crea_04,
+#creatif:target~.contenu_crea #crea_05,
+#creatif:target~.contenu_crea #crea_08 {
+  opacity: 0.3;
+}
+
+#references:target~.contenu_crea #crea_01,
+#references:target~.contenu_crea #crea_02,
+#references:target~.contenu_crea #crea_06,
+#references:target~.contenu_crea #crea_07 {
+   opacity: 0.3;
+}
+
+#travaux:target~.contenu_crea #crea_01,
+#travaux:target~.contenu_crea #crea_04,
+#travaux:target~.contenu_crea #crea_05,
+#travaux:target~.contenu_crea #crea_07,
+#travaux:target~.contenu_crea #crea_08 {
+   opacity: 0.3;
+}
+
+
+/*------------ PORTFOLIO RESPONSIVE ----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+@media all and (max-width: 1024px) {
+    .portfolio_infos {
+        width: 28%;
+    }
+}
+
+@media all and (max-width: 768px) {
+    .portfolio_infos {
+        width: 40%;
+    }
+}
+
+@media all and (max-width: 480px) {
+    #selecteur {
+        width: 60%;
+    }
+    #selecteur ul {
+        flex-direction: column;
+        text-align: center;
+    }
+    #selecteur ul li a {
+        padding: .8em 0;
+        font-size: .9em;
+        width: 100%;
+    }
+    #selecteur ul li:first-child a:hover,
+    #selecteur ul li:first-child a:focus {
+        border-radius: 4px 4px 0 0;
+    }
+    #selecteur ul li:last-child a:hover,
+    #selecteur ul li:last-child a:focus {
+        border-radius: 0 0 4px 4px;
+    }
+    .portfolio_infos {
+        width: 100%;
+    }
+}
+
+/*------------ CONTACT ----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#contact {
+  width: 100%;
+  height: 40em;
+  overflow: hidden;
+}
+
+#conteneur_map {
+  margin: 0;
+  padding: 0;
+}
+
+#map {
+  background-color: rgba(92, 173, 211, 0.4);
+  position: absolute;
+  width: 100%;
+  height: 62.6vh;
+  pointer-events: none;
+}
+
+iframe {
+  width: 100%;
+  height: 630px;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+form {
+  position: relative;
+  width: 20em;
+  height: 80%;
+  left: 65vw;
+  bottom: 60vh;
+  background-color: rgba(255, 255, 255, .7);
+  padding: 10px 10px;
+}
+
+#contact h3 {
+  font-size: 1.5em;
+}
+
+#adress p{
+  line-height: 1.4em;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: #64686d;
+  font-size: 0.9em;
+}
+
+.entree {
+  padding: 3px 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-family: 'Roboto';
+  width: 98%;
+  margin: .7em 0;
+  line-height: 22px;
+}
+
+.btn_envoi {
+  padding: .4em .8em;
+  background-color: #4eb1d5;
+  border-radius: 3px;
+  color: #fff;
+  border: 0;
+  border-bottom: 3px #3a84a3 solid;
+}
+
+textarea {
+    height: 14.5em;
+}
+
+/*------------ CONTACT RESPONSIVE ----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+@media all and (max-width: 1024px) {
+    textarea.zoneform {
+        height: 8em;
+    }
+
+    form {
+      left: 31%;
+    }
+
+    #contact {
+      height: 37.4em;
+    }
+
+    #map {
+      height: 37.4em;
+    }
+}
+
+@media all and (max-width: 480px) {
+    form {
+        position: relative;
+        top: -37em;
+        left: 0;
+        margin: 1.2em auto;
+        width: 75%;
+    }
+}
+
+/*------------ FOOTER ----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+footer {
+  text-align: center;
+  font-size: 0.8em;
+  overflow: hidden;
+}
+
+@media all and (max-width: 1024px) {
+    footer {
+      height: 1.6em;
+      margin: 20px;
+    }
+}
