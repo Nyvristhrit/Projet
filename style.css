@@ -343,7 +343,7 @@ figure .slider {
 
 }
 
-@media all and (max-width: 780px) {
+@media all and (max-width: 767px) {
     
     #border_timeline,
     .contenant .controls {
@@ -562,7 +562,7 @@ figure .slider {
     }
 }
 
-@media all and (max-width: 780px) {
+@media all and (max-width: 768px) {
     #border_timeline {
         display: none;
     }
