@@ -440,10 +440,17 @@ figure .slider {
     height: 6em;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .controls a {
     opacity: 0.5;
+    text-decoration: none;
+    font-size: 1.5em;
+}
+
+.controls a:visited {
+    color: white;
 }
 
 .controls a:hover {
@@ -466,50 +473,35 @@ figure .slider {
     transition: opacity 0.2s ease-out;
 }
 
-.chevron {
-    content: '';
-    border-style: solid;
-    border-width: 0.05em 0.05em 0 0;
-    height: 15px;
-    width: 15px;
-    transform: rotate(135deg);
-    color: #fff;
-}
-
 .demi_cercle {
-    position: absolute;
-    height: 2.5em;
-    width: 5.5em;
-    border-radius: 50%/ 100% 100% 0 0;
+    width: 50px;
+    height: 100px;
     background-color: rgba(0, 0, 0, .5);
-    transform: rotate(90deg);
+    border-bottom-right-radius: 100px;
+    border-top-right-radius: 100px;
+    border-left: 0;
+    box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .demi_cercle.right {
-    -webkit-transform: rotate(-90deg);
-    transform: rotate(-90deg);
-    right: -25px;
-}
-
-.demi_cercle.left {
-    left: -25px;
-}
-
-@media all and (max-width: 1024px) {
-    .demi_cercle.left {
-        left: -20px;
-    }
-    .demi_cercle.right {
-        right: -20px;
-    }
+    transform: rotate(-180deg);
 }
 
 @media all and (max-width: 768px) {
     .controls {
         top: 40%;
+    }
+
+    .demi_cercle {
+    width: 35px;
+    height: 75px;
+    }
+
+    .controls a {
+      font-size: 1.3em;
     }
 }
 
@@ -527,7 +519,7 @@ figure .slider {
     background: #4eb1d5;
     height: 4px;
     width: 0px;
-    animation: timeliner 20s infinite;
+    animation: timeline 20s infinite;
 }
 
 .border {
@@ -538,7 +530,7 @@ figure .slider {
 }
 }
 
-@-webkit-keyframes timeliner {
+@-webkit-keyframes timeline {
     0%,
     55%,
     100% {
@@ -550,7 +542,7 @@ figure .slider {
     }
 }
 
-@keyframes timeliner {
+@keyframes timeline {
     0%,
     50%,
     100% {
