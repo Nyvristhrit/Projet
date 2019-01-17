@@ -343,7 +343,7 @@ figure .slider {
 
 }
 
-@media all and (max-width: 767px) {
+@media all and (max-width: 780px) {
     
     #border_timeline,
     .contenant .controls {
@@ -362,11 +362,12 @@ figure .slider {
     }
     
     .info_slider {
-        top: 20%;
-        left: 0;
-        width: 96%;
-        padding: 1em;
-        height: 65%;
+    position: relative;
+    left: 0;
+    width: 100%;
+    font-size: 1.2em;
+    height: 65%;
+    color: #767676;
     }
     
     .info_slider p {
@@ -381,8 +382,12 @@ figure .slider {
     }
 
     .info_slider h1 {
-    font-size: 1.7em;
+    font-size: 2.3em;
     line-height: 1em;
+    color: #767676;
+    padding-top: 1.4em;
+    text-align: center;
+
 }
 
     figure:last-child {
@@ -491,7 +496,7 @@ figure .slider {
     transform: rotate(-180deg);
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 780px) {
     .controls {
         top: 40%;
     }
@@ -555,7 +560,7 @@ figure .slider {
     }
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 780px) {
     #border_timeline {
         display: none;
     }
