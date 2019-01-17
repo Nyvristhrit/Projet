@@ -927,7 +927,7 @@ article p {
     color: white !important;
     text-shadow: 0 1px 0 rgba(0, 0, 0, .2);
     background: #4eb1d5;
-    border-bottom: 3px #3a84a3 solid;
+    border-bottom: 3px #3a84a3 solid !important;
     border-radius: 4px 0 0 4px;
   }
 
